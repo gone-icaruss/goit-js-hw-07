@@ -1,14 +1,13 @@
-// const getInput = document.querySelector('#validation-input')
-
-document.getElementById("validation-input").onblur = function () {
-    console.log(this.value.length);
-    if (this.getAttribute('data-length') > this.value.length) {
-        this.classList.remove('valid');
-        this.classList.add('invalid');
-    } else {
+const getDataLength = document.querySelector('#validation-input');
+const datasetLength = parseInt(getDataLength.dataset.length);
+getDataLength.addEventListener('change', function (event) {
+    console.log(event.target.value.length);
+    console.log(event.target.value.length === datasetLength);
+    if (event.target.value.length === datasetLength) {
         this.classList.remove('invalid');
         this.classList.add('valid');
+    } else {
+        this.classList.remove('valid');
+        this.classList.add('invalid');
     }
-};
-
-console.log(getElementById)
+});
